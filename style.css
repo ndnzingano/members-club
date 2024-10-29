@@ -111,6 +111,19 @@
   border-radius: 16px;
 }
 
+.user-data-container h2 {
+  font-size: var(--heading---title--sm);
+  color: var(--base---gray-700);
+  margin-bottom: 4px;
+}
+
+.user-data-container p {
+  font-size: var(--heading---subtitle--sm);
+  color: var(--base---gray-500);
+  margin-top: 0;
+  margin-bottom: 21px;
+}
+
 .avatar-container {
   height: 56px;
   width: 56px;
