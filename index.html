@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Member's Club</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="/assets/Logo.svg" />
+    </header>
+    <div class="container">
+      <section>
+        <form id="id-card-form">
+          <div class="input-container">
+            <input
+              autofocus
+              type="text"
+              value="124-537-835-230"
+              placeholder="ID do cartão"
+              id="id-card-input"
+            />
+            <button id="id-card-form-button">
+              <i class="ph ph-arrow-elbow-down-left"></i>
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="body-container">
+        <div class="user-data-container">
+          <div class="avatar-container">
+            <img src="/assets/Picture.png" />
+          </div>
+          <div>
+            <h2 id="name"></h2>
+            <p id="clientSince"></p>
+          </div>
+          <!-- user data -->
+          <!-- history data -->
+        </div>
+        <div>
+          <!-- loyalty card -->
+          <!-- loyalty missing -->
+        </div>
+      </section>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
