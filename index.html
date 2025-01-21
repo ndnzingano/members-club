@@ -43,11 +43,55 @@
             <h2 id="name"></h2>
             <p id="client-since"></p>
           </div>
-          <!-- loyalty card -->
-          <!-- loyalty missing -->
-          <!-- history data -->
         </div>
-        <div></div>
+        <div class="history-container">
+          <div class="history-header">
+            <h3>Histórico</h3>
+            <p id="history-header-amount"></p>
+          </div>
+          <hr />
+          <div id="history-list"></div>
+        </div>
+        <div class="loyalty-card-container">
+          <div class="loyalty-card-header">
+            <div class="loyalty-card-header-data">
+              <h3>Cartão de fidelidade</h3>
+              <p>Ao fazer os cortes de cabelo, o décimo sai de graça!</p>
+            </div>
+            <div class="loyalty-card-header-id">
+              <p class="card-id" id="card-id"></p>
+            </div>
+          </div>
+          <div class="loyalty-cards" id="loyalty-cards">
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card"></div>
+            <div class="loyalty-card">
+              <img src="assets/Gift.svg" class="gift" />
+            </div>
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-header">
+            <p id="progress-remaining"></p>
+
+            <div class="progress-bar-container">
+              <div class="progress-base-container">
+                <div class="progress-bar" id="progress-bar"></div>
+              </div>
+              <p id="progress-text"></p>
+            </div>
+          </div>
+          <img src="assets/GiftFilled.svg" />
+        </div>
+        <!-- loyalty remaining -->
+        <!-- history data -->
       </section>
     </div>
     <script type="text/javascript" src="index.js"></script>
