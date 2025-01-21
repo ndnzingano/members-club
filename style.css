@@ -390,14 +390,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.close {
-  cursor: pointer;
-  font-size: 24px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
 .dialog-container {
   display: none;
   position: fixed;
@@ -410,11 +402,25 @@
   align-items: center;
 }
 
-button {
-  margin-top: 20px;
-}
 @media screen and (max-width: 900px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
   section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     width: 100%;
   }
 
@@ -427,26 +433,53 @@ button {
     width: 99px;
   }
 
+  /* INPUT */
+
   .input-container {
-    width: 100%;
+    width: 410px;
     margin-bottom: 20px;
   }
 
   .input-container input {
-    width: 100%;
+    width: 410px;
   }
 
   .body-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'user-data'
+      'loyalty-card'
+      'progress'
+      'history';
     gap: 8px;
+    justify-items: center;
   }
+
+  /* USER DATA */
 
   .user-data-container {
-    width: calc(100% - 32px);
+    width: 380px;
   }
 
+  /* LOYALTY */
+
   .loyalty-card-container {
-    width: calc(100% - 32px);
+    width: 350px;
+  }
+
+  .loyalty-card-header-id p {
+    margin: 8px 3.5px;
+  }
+  .loyalty-card-header h3 {
+    font-size: var(--heading---subtitle--md);
+    color: var(--base---gray-500);
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+
+  .loyalty-card-header p {
+    font-size: var(--body---text--xs);
+    color: var(--base---gray-500);
   }
 
   .loyalty-card-header-id {
@@ -455,7 +488,7 @@ button {
   }
 
   .loyalty-cards {
-    gap: 8px;
+    gap: 6px;
   }
 
   .loyalty-card {
@@ -472,4 +505,27 @@ button {
       width: 24px;
     }
   }
+
+  /* PROGRESS */
+
+  .progress-container {
+    width: 350px;
+
+    img {
+      height: 70px;
+    }
+  }
+  .progress-base-container {
+    width: 150px;
+  }
+
+  /* HISTORY */
+
+  .history-container {
+    width: 380px;
+    height: fit-content;
+    overflow: auto;
+  }
+
+  /* DIALOG */
 }
