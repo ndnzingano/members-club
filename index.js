@@ -49,7 +49,7 @@ idCardForm.addEventListener('submit', function (event) {
         clientId.innerText = `ID: ${data.id}` ?? '';
 
         loyaltyCards.forEach((card, index) => {
-          if (index <= data.loyaltyCard.totalCuts) {
+          if (index < data.loyaltyCard.totalCuts) {
             card.innerHTML = `<img src="assets/PinCheck.svg"  class="pincheck" />`;
           }
         });
@@ -70,7 +70,7 @@ idCardForm.addEventListener('submit', function (event) {
         });
 
         progressRemaining.innerHTML = `<span>${data.loyaltyCard.cutsRemaining}</span> cortes restantes`;
-        updateProgress(1, 10);
+        updateProgress(data.loyaltyCard.totalCuts, 10);
 
         if (data.loyaltyCard.cutsRemaining === 0) {
           dialogContainer.style.display = 'flex';
