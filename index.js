@@ -1,3 +1,5 @@
+let bodyContent = document.getElementById('body-container');
+
 let idCardForm = document.getElementById('id-card-form');
 let idCardNumber = document.getElementById('id-card-input');
 let formButton = document.getElementById('id-card-form-button');
@@ -8,6 +10,8 @@ const loyaltyCards = document.querySelectorAll('.loyalty-card');
 let historyHeaderAmount = document.getElementById('history-header-amount');
 let historyList = document.getElementById('history-list');
 let progressRemaining = document.getElementById('progress-remaining');
+let errorContainer = document.getElementById('error-container');
+let dialogContainer = document.getElementById('dialog-container');
 
 idCardNumber.addEventListener('input', function (event) {
   if (!event.target.value) {
@@ -15,6 +19,10 @@ idCardNumber.addEventListener('input', function (event) {
   } else {
     formButton.disabled = false;
   }
+});
+
+dialogContainer.addEventListener('click', function () {
+  dialogContainer.style.display = 'none';
 });
 
 function updateProgress(current, total) {
@@ -32,7 +40,10 @@ idCardForm.addEventListener('submit', function (event) {
   fetch(`http://localhost:3001/clients/${idCardNumber.value}`)
     .then((response) => response.json())
     .then((data) => {
+      console.log('data', data);
       if (data) {
+        errorContainer.style.display = 'none';
+        bodyContent.style.display = 'grid';
         username.innerText = data.name ?? '';
         clientSince.innerText = `Cliente desde ${data.clientSince}` ?? '';
         clientId.innerText = `ID: ${data.id}` ?? '';
@@ -45,7 +56,6 @@ idCardForm.addEventListener('submit', function (event) {
         historyHeaderAmount.innerText = `${data.appointmentHistory.length} cortes`;
 
         data.appointmentHistory.forEach((history) => {
-          console.log('history', history);
           const historyItem = document.createElement('div');
           historyItem.classList.add('history-item');
           historyItem.innerHTML = `          
@@ -61,6 +71,14 @@ idCardForm.addEventListener('submit', function (event) {
 
         progressRemaining.innerHTML = `<span>${data.loyaltyCard.cutsRemaining}</span> cortes restantes`;
         updateProgress(1, 10);
+
+        if (data.loyaltyCard.cutsRemaining === 0) {
+          dialogContainer.style.display = 'flex';
+        }
       }
+    })
+    .catch((error) => {
+      bodyContent.style.display = 'none';
+      errorContainer.style.display = 'flex';
     });
 });
